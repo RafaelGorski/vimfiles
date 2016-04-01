@@ -1,7 +1,7 @@
 " Based on @mislav post http://mislav.uniqpath.com/2011/12/vim-revisited/
-set nocompatible                " choose no compatibility with legacy vi
+"set nocompatible                " choose no compatibility with legacy vi
 syntax enable
-set encoding=utf-8
+"set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 
@@ -19,35 +19,35 @@ set smartcase                   " ... unless they contain at least one capital l
 
 " My customizations
 set ls=2                        " always show status bar
-set number                      " show line numbers
+set rnu                     " show line numbers
 set cursorline                  " display a marker on current line
-colorscheme railscasts          " set colorscheme
+colorscheme twilight          " set colorscheme
 
-set completeopt=menuone,longest " simple autocomplete for anything
-set wildmode=list:longest,full  " autocomplete for paths and files
-set wildignore+=.git            " ignore these extensions on autocomplete
+"set completeopt=menuone,longest " simple autocomplete for anything
+"set wildmode=list:longest,full  " autocomplete for paths and files
+"set wildignore+=.git            " ignore these extensions on autocomplete
 
-set hidden                      " change buffers without warnings even when there are unsaved changes
+"set hidden                      " change buffers without warnings even when there are unsaved changes
 
 set backupdir=/tmp              " directory used to save backup files
 set directory=/tmp              " directory used to save swap files
-if has("win32")
-  set backupdir=$TEMP
-  set directory=$TEMP
-endif
+"if has("win32")
+"  set backupdir=$TEMP
+"  set directory=$TEMP
+"endif
 set nobackup
 set nowritebackup
 
 set t_Co=256                    " forces terminal to use 256 colors
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
-endif
+"if has("gui_running")
+"  if has("gui_gtk2")
+"    set guifont=Inconsolata\ 12
+"  elseif has("gui_macvim")
+"    set guifont=Menlo\ Regular:h14
+"  elseif has("gui_win32")
+"    set guifont=Consolas:h11:cANSI
+"  endif
+"endif
 
 call pathogen#infect()          " initializes pathogen to manage plugins
 
@@ -138,8 +138,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " open splits in a more natural way:
-set splitbelow
-set splitright
+"set splitbelow
+"set splitright
 
 set relativenumber
 set diffopt=filler,vertical
@@ -156,50 +156,50 @@ cnoreabbrev <expr> wq getcmdtype() == ":" && getcmdline() == 'wq' ? QuitPrompt(g
 cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? QuitPrompt(getcmdline()) : 'x'
 
 " omnisharp
-let g:OmniSharp_server_type = 'v1'
-let g:OmniSharp_server_type = 'roslyn'
-let g:syntastic_cs_checkers = ['code_checker']
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
-set completeopt=longest,menuone,preview
-augroup omnisharp_commands
-    autocmd!
-
-    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-
-    " Synchronous build (blocks Vim)
-    "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
-    " Builds can also run asynchronously with vim-dispatch installed
-    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
-    " automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
-    " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-
-    "show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-
-    "The following commands are contextual, based on the current cursor position.
-
-    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
-    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
-    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
-    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
-    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
-    "finds members in the current buffer
-    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
-    " cursor can be anywhere on the line containing an issue
-    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
-    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
-    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
-    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
-    "navigate up by method/property/field
-    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
-    "navigate down by method/property/field
-    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
-
-augroup END
+"let g:OmniSharp_server_type = 'v1'
+"let g:OmniSharp_server_type = 'roslyn'
+"let g:syntastic_cs_checkers = ['code_checker']
+"let g:SuperTabDefaultCompletionType = 'context'
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+"let g:SuperTabClosePreviewOnPopupClose = 1
+"set completeopt=longest,menuone,preview
+"augroup omnisharp_commands
+"    autocmd!
+"
+"    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+"    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+"
+"    " Synchronous build (blocks Vim)
+"    "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
+"    " Builds can also run asynchronously with vim-dispatch installed
+"    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+"    " automatic syntax check on events (TextChanged requires Vim 7.4)
+"    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+"
+"    " Automatically add new cs files to the nearest project on save
+"    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+"
+"    "show type information automatically when the cursor stops moving
+"    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+"
+"    "The following commands are contextual, based on the current cursor position.
+"
+"    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+"    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+"    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+"    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+"    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+"    "finds members in the current buffer
+"    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
+"    " cursor can be anywhere on the line containing an issue
+"    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
+"    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
+"    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
+"    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+"    "navigate up by method/property/field
+"    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+"    "navigate down by method/property/field
+"    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+"
+"augroup END

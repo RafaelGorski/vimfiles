@@ -17,8 +17,13 @@ Pre-requisites
 http://www.vim.org/download.php
 https://www.python.org/downloads
 
+Inside VisualStudio
+- Enable line numbers
+- Install Relative Number extension
+
 Other Vim supports:
 VsVim - https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329
+Relative Number Extension - https://visualstudiogallery.msdn.microsoft.com/19c65cc7-58fb-429b-b7c2-1892f77f890c
 
 This is a FORK
 This is a fork from Giovanni Bassi's vimfiles. Check out https://github.com/giggio/vimfiles for his latest updates.
