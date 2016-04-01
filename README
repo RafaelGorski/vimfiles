@@ -3,25 +3,20 @@ Rafael Gorski's personal vimfiles.
 I use vim with junction of Visual Studio's VSVim in a Windows Machine.
 I also use OSX however not as dev tool.
 
-Installation instructions (Linux):
-- git clone https://github.com/RafaelGorski/vimfiles ~/.vim
-- echo "source ~/.vim/.vimrc" > ~/.vimrc
-- cd ~/.vim
+Installation instructions (Windows, using Powershell):
+- git clone https://github.com/RafaelGorski/vimfiles $env:HOME/vimfiles
+- echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
+- cd ~/vimfiles
 - git submodule update --init
 
-Installation instructions (Windows, no Powershell):
-- git clone https://github.com/RafaelGorski/vimfiles ~/vimfiles
-- echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
-- cd ~/.vim
-- git submodule update --init
+Have a look to the ~/vimfiles/bundle for more details regarding each vim extension.
 
 Pre-requisites
 http://www.vim.org/download.php
 
 
 Other Vim supports:
-https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329
-
+VsVim - https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329
 
 This is a FORK
 This is a fork from Giovanni Bassi's vimfiles. Check out https://github.com/giggio/vimfiles for his latest updates.
