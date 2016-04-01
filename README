@@ -6,6 +6,8 @@ I also use OSX however not as dev tool.
 Installation instructions (Windows, using Powershell):
 - git clone https://github.com/RafaelGorski/vimfiles $env:HOME/vimfiles
 - echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
+  OR
+  fsutil hardlink create $env:HOME/_vimrc $env:HOME/vimfiles/.vimrc
 - cd ~/vimfiles
 - git submodule update --init
 
